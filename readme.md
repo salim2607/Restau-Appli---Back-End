@@ -18,7 +18,9 @@ cd restaurant-backend
 Crée la base de données :
 
 ```CREATE DATABASE restaurant;```
-
+importation de la base de donéne 
+```` psql -U postgres -d restaurant -f restaurant.sql
+````
 les tables de base de donnée seron genérée automatiquement par hibernate
 ## structure de projet
 
