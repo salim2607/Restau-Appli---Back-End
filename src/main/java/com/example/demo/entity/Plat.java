@@ -19,6 +19,7 @@ public class Plat {
     @ManyToOne
     @JoinColumn(name = "menu_id")
     private Menu menu;
+    private String imageUrl; // Ajout du champ pour stocker l'URL de l'image
 
     // Getters et Setters
 }

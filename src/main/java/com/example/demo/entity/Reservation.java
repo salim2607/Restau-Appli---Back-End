@@ -16,6 +16,7 @@ public class Reservation {
     private LocalDateTime dateHeure;
     private Integer nombrePersonnes;
     private String statut; // "confirmé", "annulé", "en attente"
+    private String imageUrl; // Ajout du champ pour stocker l'URL de l'image
 
     // Getters et Setters
 

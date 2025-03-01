@@ -13,6 +13,7 @@ public class Boisson {
 
     private String nom;
     private Double prix;
+    private String imageUrl; // Ajout du champ pour stocker l'URL de l'image
 
     // Getters et Setters
 }
