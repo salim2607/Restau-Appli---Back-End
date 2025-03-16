@@ -7,8 +7,8 @@ import java.util.List;
 
 @Entity
 @Data
-@Table(name = "boisson")
-public class Boisson {
+@Table(name = "dessert")
+public class Dessert {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -16,6 +16,6 @@ public class Boisson {
     private Double prix;
     private String imageUrl;
 
-    @OneToMany(mappedBy = "boisson")
+    @OneToMany(mappedBy = "dessert")
     private List<Commande> commandes;
 }
