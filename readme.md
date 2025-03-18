@@ -6,7 +6,7 @@ Java 21 (java -version)
 
 PostgreSQL (psql --version)
 
-Maven (mvn -version)
+
 ## 2. Installation et Configuration
 Cloner le projet
 
