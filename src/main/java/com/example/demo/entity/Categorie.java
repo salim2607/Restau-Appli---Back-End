@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.util.List;
@@ -15,5 +16,6 @@ public class Categorie {
     private String nom; // Exemple : "Pizzas", "Pâtes", "Salades", etc.
 
     @OneToMany(mappedBy = "categorie", cascade = CascadeType.ALL)
+    @JsonIgnore // ⚠️ Empêche la boucle infinie
     private List<Plat> plats;
 }

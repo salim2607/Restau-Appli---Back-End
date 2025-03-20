@@ -1,4 +1,5 @@
 package com.example.demo.entity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -18,5 +19,6 @@ public class Menu {
     private String imageUrl; // URL de l'image
 
     @OneToMany(mappedBy = "menu", cascade = CascadeType.ALL)
+    @JsonIgnore // ⚠️ Empêche la boucle infinie
     private List<Commande> commandes; // Un menu peut être commandé plusieurs fois
 }

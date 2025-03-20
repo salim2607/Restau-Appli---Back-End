@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -17,5 +18,6 @@ public class Dessert {
     private String imageUrl;
 
     @OneToMany(mappedBy = "dessert")
+    @JsonIgnore // ⚠️ Empêche la boucle infinie
     private List<Commande> commandes;
 }

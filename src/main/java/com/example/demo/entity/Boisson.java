@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Data
@@ -17,5 +18,6 @@ public class Boisson {
     private String imageUrl;
 
     @OneToMany(mappedBy = "boisson")
+    @JsonIgnore // ⚠️ Empêche la boucle infinie
     private List<Commande> commandes;
 }

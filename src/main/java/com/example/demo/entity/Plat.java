@@ -1,6 +1,7 @@
 package com.example.demo.entity;
 
 import com.example.demo.entity.Menu;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -28,6 +29,7 @@ public class Plat {
     @JoinColumn(name = "categorie_id")
     private Categorie categorie;
     @ManyToMany
+    @JsonIgnore // ⚠️ Empêche la boucle infinie
     @JoinTable(
             name = "plat_allergene",
             joinColumns = @JoinColumn(name = "plat_id"),

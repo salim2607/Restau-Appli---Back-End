@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.util.List;
@@ -15,5 +16,6 @@ public class Allergene {
     private String nom; // Exemple : "Gluten", "Lait", "Fruits à coque", "Œufs"
 
     @ManyToMany(mappedBy = "allergenes")
+    @JsonIgnore // ⚠️ Empêche la boucle infinie
     private List<Plat> plats;
 }
