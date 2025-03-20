@@ -24,8 +24,12 @@ public class Plat {
     private String imageUrl;
 
     @OneToMany(mappedBy = "plat")
+    @JsonIgnore // ⚠️ Empêche la boucle infinie
+
     private List<Commande> commandes;
     @ManyToOne
+    @JsonIgnore // ⚠️ Empêche la boucle infinie
+
     @JoinColumn(name = "categorie_id")
     private Categorie categorie;
     @ManyToMany
