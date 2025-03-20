@@ -24,26 +24,36 @@ importation de la base de donéne
 les tables de base de donnée seron genérée automatiquement par hibernate
 ## structure de projet
 
-## API REST
-   
-Voir tous les menus	GET	/api/menus
-   
-Ajouter un menu	POST	/api/menus
+# API Documentation
 
-Modifier un menu	PUT	/api/menus/{id}
-   
-Supprimer un menu	DELETE	/api/menus/{id}
+## Allergènes
+- **GET** `/api/allergenes` - Récupérer la liste de tous les allergènes  
+- **POST** `/api/allergenes` - Ajouter un nouvel allergène  
 
-Voir tous les plats	GET	/api/plats
-   
-Ajouter un plat	POST	/api/plats
-   
- Voir toutes les boissons	GET	/api/boissons
-   
-Ajouter une boisson	POST	/api/boissons
-   
-Voir les réservations	GET	/api/reservations
+## Boissons
+- **GET** `/api/boissons` - Récupérer toutes les boissons  
 
-Ajouter une réservation	POST	/api/reservations 
+## Catégories
+- **GET** `/api/categories` - Récupérer toutes les catégories  
+- **POST** `/api/categories` - Ajouter une nouvelle catégorie  
+
+## Commandes
+- **GET** `/api/commandes` - Récupérer toutes les commandes  
+- **POST** `/api/commandes` - Ajouter une nouvelle commande  
+
+## Menus
+- **GET** `/api/menus` - Récupérer tous les menus  
+- **POST** `/api/menus` - Ajouter un nouveau menu  
+
+## Plats
+- **GET** `/api/plats` - Récupérer tous les plats  
+- **POST** `/api/plats` - Ajouter un nouveau plat  
+
+## Réservations
+- **GET** `/api/reservations` - Récupérer toutes les réservations  
+- **POST** `/api/reservations` - Créer une nouvelle réservation  
+- **PUT** `/api/reservations/{id}` - Modifier une réservation existante  
+- **DELETE** `/api/reservations/{id}` - Supprimer une réservation  
+
 
 ## l'ajout et l'edition et la suppression de menu ,plat ,boisson sont implémentée dans les sevice et gerée par les api
