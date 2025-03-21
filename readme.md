@@ -54,6 +54,11 @@ les tables de base de donnée seron genérée automatiquement par hibernate
 - **POST** `/api/reservations` - Créer une nouvelle réservation  
 - **PUT** `/api/reservations/{id}` - Modifier une réservation existante  
 - **DELETE** `/api/reservations/{id}` - Supprimer une réservation  
+### 🍰 API - Desserts
 
+#### 🔍 GET `/api/desserts`
+- **Description :** Récupère tous les desserts disponibles.
+- **Méthode :** GET
+- **Exemple de réponse :**
 
 ## l'ajout et l'edition et la suppression de menu ,plat ,boisson sont implémentée dans les sevice et gerée par les api
