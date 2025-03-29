@@ -62,3 +62,27 @@ les tables de base de donnée seron genérée automatiquement par hibernate
 - **Exemple de réponse :**
 
 ## l'ajout et l'edition et la suppression de menu ,plat ,boisson sont implémentée dans les sevice et gerée par les api
+## Authentification – Login API
+### POST /api/auth/login
+Permet à un utilisateur de se connecter avec son email et mot de passe, et de recevoir un JWT token + rôles en réponse.
+
+Requête
+
+### POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+Body (JSON)
+
+{
+  "email": "admin@resto.com",
+  "password": "adminpass"
+}
+ Réponse (200 OK)
+
+Modifier
+{
+  "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1p...",
+  "email": "admin@resto.com",
+  "roles": [
+    "ROLE_ADMIN"
+  ]
+}
