@@ -32,9 +32,10 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/api/test/public").permitAll()
-                        .requestMatchers("/api/test/public").permitAll()
-                        .anyRequest().authenticated()
+                        .requestMatchers("/api/reservations/**").permitAll() // ✅ laisser ouvert
+                        .anyRequest().authenticated() // ✅ sécuriser tout le reste
                 )
+
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 )

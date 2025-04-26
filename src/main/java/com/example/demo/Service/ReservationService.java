@@ -13,7 +13,8 @@ import java.util.Optional;
 public class ReservationService {
     @Autowired
     private ReservationRepository reservationRepository;
-
+    @Autowired
+    private MailService mailService;
     public List<Reservation> getAllReservations() {
         return reservationRepository.findAll();
     }
@@ -27,7 +28,15 @@ public class ReservationService {
             throw new RuntimeException("La table " + reservation.getNumeroTable() + " est déjà réservée à cette heure !");
         }
 
-        return reservationRepository.save(reservation);
+        Reservation savedReservation = reservationRepository.save(reservation);
+
+        mailService.envoyerConfirmation(
+                reservation.getEmail(), // ou savedReservation.getEmail()
+                "Confirmation de réservation",
+                "Votre réservation a bien été enregistrée pour le " + reservation.getDateHeure()
+        );
+
+        return savedReservation;
     }
 
     public Reservation updateReservation(Long id, Reservation reservationDetails) {
