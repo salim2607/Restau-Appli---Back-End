@@ -1,6 +1,7 @@
 package com.example.demo.controlleur;
 
 
+import com.example.demo.entity.LigneCommande;
 
 import com.example.demo.entity.Commande;
 import com.example.demo.Service.CommandeService;
@@ -23,6 +24,9 @@ public class CommandeController {
 
     @PostMapping
     public Commande createCommande(@RequestBody Commande commande) {
+        for (LigneCommande lc : commande.getLignesCommande()) {
+            lc.setCommande(commande); // Associer chaque ligne à la commande
+        }
         return commandeService.saveCommande(commande);
     }
 }

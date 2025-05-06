@@ -33,6 +33,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/api/test/public").permitAll()
                         .requestMatchers("/api/reservations/**").permitAll() // ✅ laisser ouvert
+                        .requestMatchers("/api/commandes/**").permitAll()
                         .anyRequest().authenticated() // ✅ sécuriser tout le reste
                 )
 

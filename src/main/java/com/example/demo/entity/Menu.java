@@ -18,7 +18,5 @@ public class Menu {
     private String description;
     private String imageUrl; // URL de l'image
 
-    @OneToMany(mappedBy = "menu", cascade = CascadeType.ALL)
-    @JsonIgnore // ⚠️ Empêche la boucle infinie
-    private List<Commande> commandes; // Un menu peut être commandé plusieurs fois
+
 }

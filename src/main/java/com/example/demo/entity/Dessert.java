@@ -17,7 +17,5 @@ public class Dessert {
     private Double prix;
     private String imageUrl;
 
-    @OneToMany(mappedBy = "dessert")
-    @JsonIgnore // ⚠️ Empêche la boucle infinie
-    private List<Commande> commandes;
+
 }

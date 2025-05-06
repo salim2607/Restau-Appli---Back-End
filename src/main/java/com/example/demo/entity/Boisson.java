@@ -17,7 +17,5 @@ public class Boisson {
     private Double prix;
     private String imageUrl;
 
-    @OneToMany(mappedBy = "boisson")
-    @JsonIgnore // ⚠️ Empêche la boucle infinie
-    private List<Commande> commandes;
+
 }

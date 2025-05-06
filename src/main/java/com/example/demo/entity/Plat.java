@@ -23,10 +23,7 @@ public class Plat {
     private Double prix;
     private String imageUrl;
 
-    @OneToMany(mappedBy = "plat")
-    @JsonIgnore // ⚠️ Empêche la boucle infinie
 
-    private List<Commande> commandes;
     @ManyToOne
     @JsonIgnore // ⚠️ Empêche la boucle infinie
 
