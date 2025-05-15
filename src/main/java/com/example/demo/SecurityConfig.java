@@ -34,6 +34,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/test/public").permitAll()
                         .requestMatchers("/api/reservations/**").permitAll() // ✅ laisser ouvert
                         .requestMatchers("/api/commandes/**").permitAll()
+                        .requestMatchers("/api/menus/**").permitAll() // ✅ <-- Ajoute ça
                         .anyRequest().authenticated() // ✅ sécuriser tout le reste
                 )
 
