@@ -36,7 +36,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/commandes/**").permitAll()
                         .requestMatchers("/api/menus/**").permitAll() // ✅ <-- Ajoute ça
                         .requestMatchers("/api/plats").permitAll() // ✅ <-- Ajoute ça
-                        .requestMatchers("/api/boisson").permitAll() // ✅ <-- Ajoute ça
+                        .requestMatchers("/api/boissons").permitAll() // ✅ <-- Ajoute ça
 
                         .anyRequest().authenticated() // ✅ sécuriser tout le reste
                 )
