@@ -30,11 +30,14 @@ public class SecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers("/api/auth/**", "/error").permitAll()
                         .requestMatchers("/api/test/public").permitAll()
                         .requestMatchers("/api/reservations/**").permitAll() // ✅ laisser ouvert
                         .requestMatchers("/api/commandes/**").permitAll()
                         .requestMatchers("/api/menus/**").permitAll() // ✅ <-- Ajoute ça
+                        .requestMatchers("/api/plats").permitAll() // ✅ <-- Ajoute ça
+                        .requestMatchers("/api/boisson").permitAll() // ✅ <-- Ajoute ça
+
                         .anyRequest().authenticated() // ✅ sécuriser tout le reste
                 )
 
