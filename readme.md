@@ -43,8 +43,7 @@ les tables de la base de données seront genérées automatiquement par hibernat
 ## Menus
 - **GET** `/api/menus` - Récupérer tous les menus  
 - **POST** `/api/menus` - Ajouter un nouveau menu  
-```
-```
+
 ## Plats
 - **GET** `/api/plats` - Récupérer tous les plats  
 - **POST** `/api/plats` - Ajouter un nouveau plat  
