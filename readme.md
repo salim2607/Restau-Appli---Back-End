@@ -117,27 +117,6 @@ ajouter une reservation avec l'envoie automatique de mail :http://localhost:8080
 affichage des commandes :
 Get :http://localhost:8080/api/commandes
 résultat :
-```
-{
-  "statut": "en attente",
-  "lignesCommande": [
-    {
-      "quantite": 1,
-      "plat": { "id": 3 }
-    },
-    {
-      "quantite": 2,
-      "boisson": { "id": 1 }
-    },
-    {
-      "quantite": 1,
-      "dessert": { "id": 2 }
-    }
-  ]
-}```
-création de commande :
-Post :http://localhost:8080/api/commandes
-
 ```{
   "statut": "en attente",
   "lignesCommande": [
@@ -154,6 +133,31 @@ Post :http://localhost:8080/api/commandes
       "dessert": { "id": 2 }
     }
   ]
+}``` 
+````````
+création de commande :
+Post :http://localhost:8080/api/commandes/pdf
+````````
+```{
+"statut": "payée",
+"lignesCommande": [
+{
+"quantite": 1,
+"plat": { "id": 1 }
+},
+{
+"quantite": 2,
+"boisson": { "id": 3 }
+}
+]
 }```
+````````
+Notes techniques pour les devs
+Si un ID est incorrect ou inexistant, une exception RuntimeException est levée (à améliorer avec @ControllerAdvice pour gestion propre).
 
+Le champ prix doit exister et être non null dans la base pour tous les produits (plat, boisson, etc.).
+
+Le PDF est retourné inline avec :
+
+Content-Disposition: inline; filename=ticket_23.pdf
 

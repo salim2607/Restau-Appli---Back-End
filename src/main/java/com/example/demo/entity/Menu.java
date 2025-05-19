@@ -13,7 +13,7 @@ public class Menu {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    private Integer prix; // type objet, accepte null
     private String nom;
     private String description;
     private String imageUrl; // URL de l'image

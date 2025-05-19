@@ -1,0 +1,38 @@
+package com.example.demo.Service;
+
+public String genererTicket(Commande commande) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("------------------------------\n");
+        sb.append("    TICKET DE COMMANDE\n");
+        sb.append("------------------------------\n");
+        sb.append("Commande n° : ").append(commande.getId()).append("\n");
+        sb.append("Date : ").append(LocalDateTime.now()).append("\n\n");
+        sb.append("Produits :\n");
+
+        double totalHT = 0;
+        for (LigneCommande lc : commande.getLignesCommande()) {
+        String nom = lc.getPlat() != null ? lc.getPlat().getNom() :
+        lc.getMenu() != null ? lc.getMenu().getNom() :
+        lc.getDessert() != null ? lc.getDessert().getNom() :
+        lc.getBoisson() != null ? lc.getBoisson().getNom() : "Produit inconnu";
+        double prix = lc.getPlat() != null ? lc.getPlat().getPrix() :
+        lc.getMenu() != null ? lc.getMenu().getPrix() :
+        lc.getDessert() != null ? lc.getDessert().getPrix() :
+        lc.getBoisson() != null ? lc.getBoisson().getPrix() : 0;
+        double ligneTotal = prix * lc.getQuantite();
+        sb.append(String.format("- %-15s x%d   %.2f € = %.2f €\n", nom, lc.getQuantite(), prix, ligneTotal));
+        totalHT += ligneTotal / 1.1;
+        }
+
+        double tva = totalHT * 0.1;
+        double totalTTC = totalHT + tva;
+
+        sb.append("\n------------------------------\n");
+        sb.append(String.format("TOTAL HT      :           %.2f €\n", totalHT));
+        sb.append(String.format("TVA (10%%)     :           %.2f €\n", tva));
+        sb.append(String.format("TOTAL TTC     :           %.2f €\n", totalTTC));
+        sb.append("------------------------------\n\n");
+        sb.append("Merci pour votre commande !\n");
+
+        return sb.toString();
+        }

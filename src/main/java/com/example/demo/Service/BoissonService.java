@@ -15,4 +15,8 @@ public class BoissonService {
     public List<Boisson> getAllBoissons() {
         return boissonRepository.findAll();
     }
+    public Boisson getBoissonById(Long id) {
+        return boissonRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Boisson non trouvée avec l'id : " + id));
+    }
 }

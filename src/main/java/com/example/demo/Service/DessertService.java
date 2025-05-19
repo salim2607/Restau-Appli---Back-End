@@ -20,5 +20,9 @@ public class DessertService {
     public Dessert saveDessert(Dessert dessert) {
         return dessertRepository.save(dessert);
     }
+    public Dessert getDessertById(Long id) {
+        return dessertRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Dessert non trouvé avec l'id : " + id));
+    }
 }
 

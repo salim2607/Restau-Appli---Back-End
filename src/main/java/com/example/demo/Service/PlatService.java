@@ -35,12 +35,17 @@ public class PlatService {
             throw new RuntimeException("Plat non trouvé avec l'ID : " + id);
         }
     }
+
     public void deletePlat(long id) {
         if (platRepository.existsById(id)) {
             platRepository.deleteById(id);
         } else {
             throw new RuntimeException("Plat non trouvé avec l'ID : " + id);
         }
+    }
+    public Plat getPlatById(Long id) {
+        return platRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Plat non trouvé"));
     }
 
 }

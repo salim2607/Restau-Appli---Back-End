@@ -1,5 +1,6 @@
 package com.example.demo.Service;
 
+import com.example.demo.entity.Boisson;
 import com.example.demo.entity.Menu;
 import com.example.demo.repo.MenuRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +18,7 @@ public class MenuService {
         return menuRepository.findAll();
     }
 
-    public Menu getMenuById(Long id) {
-        return menuRepository.findById(id).orElse(null);
-    }
+
 
     public Menu saveMenu(Menu menu) {
         return menuRepository.save(menu);
@@ -44,5 +43,9 @@ public class MenuService {
         }
     }
 
+    public Menu getMenuById(Long id) {
+        return menuRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Menu non trouvé avec l'id : " + id));
+    }
 
 }
