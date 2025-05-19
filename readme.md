@@ -161,3 +161,23 @@ Le PDF est retourné inline avec :
 
 Content-Disposition: inline; filename=ticket_23.pdf
 
+2. Simuler un paiement par carte
+   POST http://localhost:8080/api/paiement/carte?commandeId={id}
+exemple :POST http://localhost:8080/api/paiement/carte?commandeId=23
+   Résultat attendu (JSON) :
+   {
+   "message": "Paiement validé avec succès",
+   "commandeId": 23,
+   "statut": "payée",
+   "factureUrl": "/api/paiement/facture/23"
+   }
+3. Télécharger la facture PDF après paiement
+
+GET http://localhost:8080/api/paiement/facture/{id_commande}
+GET http://localhost:8080/api/paiement/facture/23
+
+Logique métier – Paiement et Facture
+Lorsqu’un client valide sa commande, elle est d'abord enregistrée avec le statut "en attente".
+Une fois le client choisit le paiement par carte, une API /api/paiement/carte?commandeId=... simule un paiement sécurisé (aucune vraie transaction). Si le paiement est validé, le backend change le statut de la commande à "payée", ajoute le montant au chiffre d’affaires et génère automatiquement une facture PDF. Le frontend peut ensuite afficher un message de confirmation ainsi qu’un lien de téléchargement vers la facture via /api/paiement/facture/{id}.
+
+

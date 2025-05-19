@@ -41,6 +41,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/allergenes").permitAll() // ✅ <-- Ajoute ça
                         .requestMatchers("/api/desserts").permitAll() // ✅ <-- Ajoute ça
                         .requestMatchers("/api/menus").permitAll() // ✅ <-- Ajoute ça
+                        .requestMatchers("/api/paiement/**").permitAll()
                         .anyRequest().authenticated() // ✅ sécuriser tout le reste
                 )
 
