@@ -18,4 +18,7 @@ public class Commande {
 
     @OneToMany(mappedBy = "commande", cascade = CascadeType.ALL)
     private List<LigneCommande> lignesCommande;
+    @ManyToOne
+    @JoinColumn(name = "table_id")
+    private TableResto tableResto;
 }

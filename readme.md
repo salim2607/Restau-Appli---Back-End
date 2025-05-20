@@ -181,3 +181,36 @@ Lorsqu’un client valide sa commande, elle est d'abord enregistrée avec le sta
 Une fois le client choisit le paiement par carte, une API /api/paiement/carte?commandeId=... simule un paiement sécurisé (aucune vraie transaction). Si le paiement est validé, le backend change le statut de la commande à "payée", ajoute le montant au chiffre d’affaires et génère automatiquement une facture PDF. Le frontend peut ensuite afficher un message de confirmation ainsi qu’un lien de téléchargement vers la facture via /api/paiement/facture/{id}.
 
 
+## Créer une table
+POST /tables
+
+🔸 Body JSON :
+````
+{
+"numero": "T1",
+"emplacement": "terrasse",
+"nombrePlaces": 4,
+"statut": "disponible"
+}
+````
+## Récupérer toutes les tables
+````GET /tables````
+## Affecter une commande à une table
+PUT /tables/affecter?commandeId={commandeId}&numeroTable={numeroTable}
+````PUT /tables/affecter?commandeId=1&numeroTable=T1````
+# COMMANDES
+## Récupérer les commandes par statut
+GET /commandes?statut={statut}
+
+Exemple :
+
+```GET /commandes?statut=en attente```
+## Modifier le statut d’une commande
+## PUT /commandes/{id}/statut
+{
+"statut": "en préparation"
+}
+PUT /commandes/1/statut
+## Obtenir une commande spécifique
+## GET /commandes/{id} 
+```exemple :GET /commandes/1```
