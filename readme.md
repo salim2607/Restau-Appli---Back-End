@@ -18,10 +18,9 @@ cd restaurant-backend
 Crée la base de données :
 
 ```CREATE DATABASE restaurant;```
-importation de la base de donéne 
-```` psql -U postgres -d restaurant -f restaurant.sql
-````
-les tables de base de donnée seron genérée automatiquement par hibernate
+importation de la base de données 
+```` psql -U postgres -d restaurant -f restaurant.sql````
+les tables de la base de données seront genérées automatiquement par hibernate
 ## structure de projet
 
 # API Documentation
@@ -44,8 +43,7 @@ les tables de base de donnée seron genérée automatiquement par hibernate
 ## Menus
 - **GET** `/api/menus` - Récupérer tous les menus  
 - **POST** `/api/menus` - Ajouter un nouveau menu  
-```
-```
+
 ## Plats
 - **GET** `/api/plats` - Récupérer tous les plats  
 - **POST** `/api/plats` - Ajouter un nouveau plat  
@@ -63,10 +61,10 @@ les tables de base de donnée seron genérée automatiquement par hibernate
 - **Méthode :** GET
 - **Exemple de réponse :**
 
-## l'ajout et l'edition et la suppression de menu ,plat ,boisson sont implémentée dans les sevice et gerée par les api
+## l'ajout et l'edition et la suppression de menu ,plat ,boisson sont implémentée dans les sevices et gerées par les api
 ## Authentification – Login API
 ### POST /api/auth/login
-Permet à un utilisateur de se connecter avec son email et mot de passe, et de recevoir un JWT token + rôles en réponse.
+Permettre à un utilisateur de se connecter avec son email et mot de passe, et de recevoir un JWT token + rôles en réponse.
 
 Requête
 
@@ -90,7 +88,7 @@ Modifier
 }
 
 
-### création un compte 
+### création de compte 
 Post :http://localhost:8080/api/auth/register
 ```{
   "nom": "Yass",
@@ -101,8 +99,8 @@ Post :http://localhost:8080/api/auth/register
   "roles": ["CLIENT"]
 }
 ```
-### reservations
-ajouter une reservation avec l'envoie automatique de mail :http://localhost:8080/api/reservations 
+### réservations
+ajouter une réservation avec l'envoie automatique de mail :http://localhost:8080/api/reservations 
 ```{
  {
   "nomClient": "Mohamed",
