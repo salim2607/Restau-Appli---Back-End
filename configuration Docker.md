@@ -12,7 +12,13 @@ Assurez-vous d'avoir installé :
 - (Docker Compose est inclus)
 
 ---
-
+```git clone https://github.com/TON_UTILISATEUR/NOM_DU_DEPOT.git
+cd NOM_DU_DEPOT
+Lister les branches distantes
+git fetch
+git branch -r
+git checkout docker-support
+```
 ### 📁 Fichiers inclus
 
 - `Dockerfile` : build et exécution de l'app Spring Boot
