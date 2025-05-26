@@ -2,6 +2,7 @@ package com.example.demo.controlleur;
 
 
 import com.example.demo.Service.*;
+import com.example.demo.entity.Dessert;
 import com.example.demo.entity.LigneCommande;
 
 import com.example.demo.entity.Commande;
@@ -30,6 +31,11 @@ public class CommandeController {
     @GetMapping
     public List<Commande> getAllCommandes() {
         return commandeService.getAllCommandes();
+    }
+
+    @PostMapping
+    public Commande createCommande(@RequestBody Commande commande) {
+        return commandeService.saveCommande(commande);
     }
 
     @Autowired
