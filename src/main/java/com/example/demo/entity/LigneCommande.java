@@ -1,4 +1,5 @@
 package com.example.demo.entity;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -13,6 +14,7 @@ public class LigneCommande {
 
     @ManyToOne
     @JoinColumn(name = "commande_id")
+    @JsonBackReference
     private Commande commande;
 
     @ManyToOne

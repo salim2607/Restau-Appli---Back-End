@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -17,7 +18,9 @@ public class Commande {
     private String statut; // "en attente", "validée", etc.
 
     @OneToMany(mappedBy = "commande", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<LigneCommande> lignesCommande;
+
     @ManyToOne
     @JoinColumn(name = "table_id")
     private TableResto tableResto;
