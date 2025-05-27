@@ -14,8 +14,9 @@ public class Commande {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String statutPreparation = "à cuisiner"; // "à cuisiner", "prêt", "archivé"
 
-    private String statut; // "en attente", "validée", etc.
+    private String statutPaiement;         // <--- "payé" ou "non payé"
 
     @OneToMany(mappedBy = "commande", cascade = CascadeType.ALL)
     @JsonManagedReference

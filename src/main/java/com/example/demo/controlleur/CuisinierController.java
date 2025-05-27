@@ -18,14 +18,14 @@ public class CuisinierController {
 
     @GetMapping("/a-cuisiner")
     public List<Commande> getCommandesACuisiner() {
-        return commandeRepo.findByStatut("en attente");
+        return commandeRepo.findByStatutPreparation("en attente");
     }
 
     @PutMapping("/changer-statut/{id}")
     public ResponseEntity<String> changerStatut(@PathVariable Long id, @RequestParam String statut) {
         Commande commande = commandeRepo.findById(id)
                 .orElseThrow(() -> new RuntimeException("Commande non trouvée"));
-        commande.setStatut(statut);
+        commande.setStatutPaiement(statut);
         commandeRepo.save(commande);
         return ResponseEntity.ok("Statut mis à jour : " + statut);
     }

@@ -32,7 +32,7 @@ public class PaiementController {
         Commande commande = commandeRepository.findById(commandeId)
                 .orElseThrow(() -> new RuntimeException("Commande non trouvée"));
 
-        commande.setStatut("payée");
+        commande.setStatutPaiement("payée");
         commandeRepository.save(commande);
 
         String ticketText = commandeService.genererTicket(commande);
