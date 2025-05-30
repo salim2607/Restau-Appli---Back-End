@@ -86,18 +86,37 @@ public class CommandeController {
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
-    @PutMapping("/{id}/statut")
+    @PutMapping("/{id}/statutPaiement")
     public ResponseEntity<Commande> updateStatutCommande(
             @PathVariable Long id,
             @RequestBody Map<String, String> body) {
 
         return commandeRepo.findById(id)
                 .map(commande -> {
-                    commande.setStatut(body.get("statut"));
+                    commande.setStatutPaiement(body.get("statut"));
                     commandeRepo.save(commande);
                     return ResponseEntity.ok(commande);
                 })
                 .orElse(ResponseEntity.notFound().build());
     }
+    @PutMapping("/{id}/preparation")
+    public ResponseEntity<Commande> updateStatutPreparation(
+            @PathVariable Long id,
+            @RequestBody Map<String, String> body) {
+
+        return commandeRepo.findById(id)
+                .map(commande -> {
+                    commande.setStatutPreparation(body.get("statutPreparation"));
+                    commandeRepo.save(commande);
+                    return ResponseEntity.ok(commande);
+                })
+                .orElse(ResponseEntity.notFound().build());
+    }
+    @GetMapping("/preparation")
+    public ResponseEntity<List<Commande>> getCommandesByStatutPreparation(@RequestParam String statutPreparation) {
+        List<Commande> commandes = commandeRepo.findByStatutPreparation(statutPreparation);
+        return ResponseEntity.ok(commandes);
+    }
+
 
 }

@@ -203,7 +203,7 @@ GET /commandes?statut={statut}
 Exemple :
 
 ```GET /commandes?statut=en attente```
-## Modifier le statut d’une commande
+## Modifier le statut de preparation d’une commande
 ## PUT /commandes/{id}/statut
 {
 "statut": "en préparation"
@@ -212,3 +212,15 @@ PUT /commandes/1/statut
 ## Obtenir une commande spécifique
 ## GET /commandes/{id} 
 ```exemple :GET /commandes/1```
+## mis a jour de status_à_cuisiner de la commande (prete ,à cuisiner ,archivé)
+## Put http://localhost:8080/api/commandes/1/preparation 
+```{
+"statutPreparation": "prêt"
+}
+```
+## modification de statut paiement 
+## PUT  /{id}/statutPaiement 
+```{
+"statut": "payé"
+}
+```

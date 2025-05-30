@@ -33,7 +33,7 @@ public class TableRestoController {
 
         table.setStatut("occupée");
         commande.setTableResto(table);
-        commande.setStatut("en attente");
+        commande.setStatutPreparation("en attente");
 
         tableRepo.save(table);
         commandeRepo.save(commande);

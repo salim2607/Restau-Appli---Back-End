@@ -9,6 +9,7 @@ import java.util.List;
 
 @Repository
 public interface CommandeRepository extends JpaRepository<Commande, Long> {
-    List<Commande> findByStatut(String statut);
+    List<Commande> findByStatutPaiement(String statutPaiement);
+    List<Commande> findByStatutPreparation(String statutPreparation);
 
 }
