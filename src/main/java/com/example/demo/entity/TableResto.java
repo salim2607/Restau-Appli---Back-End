@@ -1,6 +1,7 @@
 package com.example.demo.entity;
 
 import com.example.demo.entity.Commande;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -21,5 +22,6 @@ public class TableResto {
     private String statut = "libre"; // libre | occupée | en attente
 
     @OneToMany(mappedBy = "tableResto")
+    @JsonManagedReference
     private List<Commande> commandes;
 }
