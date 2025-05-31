@@ -22,6 +22,7 @@ public class AllergeneController {
 
     @PostMapping
     public Allergene createAllergene(@RequestBody Allergene allergene) {
+
         return allergeneRepository.save(allergene);
     }
 }
