@@ -35,7 +35,8 @@ public class SecurityConfig {
                         .requestMatchers("/api/reservations/**").permitAll() // ✅ laisser ouvert
                         .requestMatchers("/api/commandes/**").permitAll()
                         .requestMatchers("/api/menus/**").permitAll() // ✅ <-- Ajoute ça
-                        .requestMatchers("/api/plats").permitAll() // ✅ <-- Ajoute ça
+                        .requestMatchers("/api/plats/**").permitAll() // ✅ <-- Ajoute ça
+                        .requestMatchers("/api/plats/**").permitAll()
                         .requestMatchers("/api/boissons").permitAll() // ✅ <-- Ajoute ça
                         .requestMatchers("/api/categories").permitAll() // ✅ <-- Ajoute ça
                         .requestMatchers("/api/allergenes").permitAll() // ✅ <-- Ajoute ça

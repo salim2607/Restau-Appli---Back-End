@@ -8,6 +8,7 @@ import com.example.demo.entity.LigneCommande;
 import com.example.demo.entity.Commande;
 import com.example.demo.Service.CommandeService;
 
+import com.example.demo.entity.Plat;
 import com.example.demo.repo.CommandeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -117,6 +118,25 @@ public class CommandeController {
         List<Commande> commandes = commandeRepo.findByStatutPreparation(statutPreparation);
         return ResponseEntity.ok(commandes);
     }
-
+    @DeleteMapping("/commandes/{id}")
+    public ResponseEntity<String> deleteCommande(@PathVariable Long id) {
+        if (!commandeRepo.existsById(id)) {
+            return ResponseEntity.notFound().build();
+        }
+        commandeRepo.deleteById(id);
+        return ResponseEntity.ok("Commande supprimée avec succès.");
+    }
+    @PutMapping("/commandes/{id}")
+    public ResponseEntity<Commande> updateCommande(@PathVariable Long id, @RequestBody Commande updatedCommande) {
+        return commandeRepo.findById(id).map(commande -> {
+            commande.setStatutPreparation(updatedCommande.getStatutPreparation());
+            commande.setStatutPaiement(updatedCommande.getStatutPaiement());
+            commande.setTableResto(updatedCommande.getTableResto());
+            commande.setLignesCommande(updatedCommande.getLignesCommande());
+            updatedCommande.getLignesCommande().forEach(lc -> lc.setCommande(commande));
+            commandeRepo.save(commande);
+            return ResponseEntity.ok(commande);
+        }).orElse(ResponseEntity.notFound().build());
+    }
 
 }
